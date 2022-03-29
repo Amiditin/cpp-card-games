@@ -1,7 +1,9 @@
 #ifndef BLACKJACK_GAMES_H
 #define BLACKJACK_GAMES_H
 
-#include <iostream>
+#include "./Casino/Blackjack/Blackjack.h"
+#include "./Casino/Baccarat/Baccarat.h"
+#include "./Casino/Seka/Seka.h"
 
 enum Games {
     BLACKJACK = 1,
@@ -10,56 +12,14 @@ enum Games {
     MAX_GAMES
 };
 
-int getUserChoice()
-{
-    while (true)
-    {
-        int choice;
-        std::cin >> choice;
+void playBlackjack();
 
-        if (std::cin.fail() || choice < 0 || choice >= Games::MAX_GAMES)
-        {
-            std::cin.clear();
-            std::cin.ignore(32767,'\n');
-            std::cout << "\nUnfortunately, you entered an incorrect number.  Please try again.\n\n";
-            std::cout << "Please choose a game:\n (1) to Blackjack\n (2) to Something\n (0) to Exit\n Your choice:";
-        }
-        else
-        {
-            std::cin.ignore(32767,'\n');
+void playSeka();
 
-            if (choice == 0)
-                return Games::MAX_GAMES;
+void playBaccarat();
 
-            return choice;
-        }
-    }
-}
+int getUserChoice();
 
-int getUserBank()
-{
-    std::cout << "How much money do you want to deposit to your bank?\n";
-
-    while (true)
-    {
-        std::cout << "Please enter the amount: ";
-        int bank;
-        std::cin >> bank;
-
-        if (std::cin.fail() || bank < 0)
-        {
-            std::cin.clear();
-            std::cin.ignore(32767,'\n');
-            std::cout << "\nUnfortunately, you entered an incorrect number.  Please try again.\n\n";
-        }
-        else
-        {
-            std::cin.ignore(32767,'\n');
-            std::cout << std::endl;
-
-            return bank;
-        }
-    }
-}
+int getUserBank();
 
 #endif

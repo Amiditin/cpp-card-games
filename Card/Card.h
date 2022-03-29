@@ -1,6 +1,7 @@
 #ifndef BLACKJACK_CARD_H
 #define BLACKJACK_CARD_H
 
+#include <iostream>
 
 class Card
 {
@@ -24,9 +25,9 @@ public:
     };
     enum CardSuit
     {
-        SUIT_CLUB,
-        SUIT_DIAMOND,
         SUIT_HEART,
+        SUIT_DIAMOND,
+        SUIT_CLUB,
         SUIT_SPADE,
         MAX_SUITS
     };
@@ -41,11 +42,9 @@ public:
 
     friend std::ostream& operator<< (std::ostream &out, const Card &card);
 
-    int getCardValue() const;
-
     CardSuit getCardSuit();
 
-    CardRank getCardRank();
+    [[nodiscard]] CardRank getCardRank() const;
 };
 
 

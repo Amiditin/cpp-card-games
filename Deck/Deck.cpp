@@ -37,8 +37,21 @@ int Deck::getRandomNumber(int min, int max)
     return static_cast<int>(rand() * fraction * (max - min + 1) + min);
 }
 
-void Deck::swapCard(Card &card1, Card &card2) {
+void Deck::swapCard(Card &card1, Card &card2)
+{
     Card temp = card1;
     card1 = card2;
     card2 = temp;
+}
+
+void Deck::fillDeck(const int startRank)
+{
+    for (int suit = 0; suit < Card::CardSuit::MAX_SUITS; ++suit)
+        for (int rank = startRank; rank < Card::CardRank::MAX_RANKS; ++rank)
+            m_deck.emplace_back(static_cast<Card::CardRank>(rank), static_cast<Card::CardSuit>(suit));
+}
+
+int Deck::getCardIndex() const
+{
+    return m_cardIndex;
 }

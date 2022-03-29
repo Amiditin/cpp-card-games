@@ -6,8 +6,6 @@
 #include <cstdlib>
 #include <cassert>
 
-#include <iostream>
-
 #include "..//Card/Card.h"
 
 class Deck
@@ -34,18 +32,15 @@ public:
             fillDeck(startRank);
     }
 
-    void fillDeck(const int startRank)
-    {
-        for (int suit = 0; suit < Card::CardSuit::MAX_SUITS; ++suit)
-            for (int rank = startRank; rank < Card::CardRank::MAX_RANKS; ++rank)
-                m_deck.emplace_back(static_cast<Card::CardRank>(rank), static_cast<Card::CardSuit>(suit));
-    }
+    void fillDeck(int startRank);
 
     void printDeck() const;
 
     void shuffleDeck();
 
-    const Card& getTopCard() const;
+    [[nodiscard]] const Card& getTopCard() const;
+
+    [[nodiscard]] int getCardIndex() const;
 
     const Card& dealCard();
 };
