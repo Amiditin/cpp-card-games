@@ -1,0 +1,9 @@
+# ninja log v5
+9	408	6702696634114563	CMakeFiles/cpp_card_games.dir/Card/Card.cpp.obj	2ef0bf3abd533fda
+13	445	6702696634474637	CMakeFiles/cpp_card_games.dir/Betting/Betting.cpp.obj	8b30546f8df97a21
+24	472	6702696634764701	CMakeFiles/cpp_card_games.dir/Games/Baccarat/Baccarat.cpp.obj	90709bb4cce59bbd
+16	474	6702696634784704	CMakeFiles/cpp_card_games.dir/Games/Blackjack/Blackjack.cpp.obj	36f09d4bc22275dc
+11	479	6702696634834713	CMakeFiles/cpp_card_games.dir/Deck/Deck.cpp.obj	717d5882375de590
+21	508	6702696635124778	CMakeFiles/cpp_card_games.dir/Games/Seka/Seka.cpp.obj	e7039c10888c8a12
+1	514	6702696635184800	CMakeFiles/cpp_card_games.dir/main.cpp.obj	6b85985111d5c5b2
+514	672	6702696636745143	cpp_card_games.exe	8f802086a36d553
