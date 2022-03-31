@@ -19,6 +19,8 @@ public:
     explicit Blackjack(const int playerBank = 100) : Casino(playerBank) {}
 
     bool playGame();
+
+    [[maybe_unused]] bool playTestGames(int numberTests);
 };
 
 

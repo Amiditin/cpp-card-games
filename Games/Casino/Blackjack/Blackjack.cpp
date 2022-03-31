@@ -103,3 +103,36 @@ int Blackjack::getTotal(const Card &card)
     }
 
 }
+
+bool Blackjack::playTestGames(int numberTests)
+{
+
+    for (int number = 0; number < numberTests; ++number)
+    {
+        std::cout << "Game " << number + 1 << std::endl;
+        resetCards();
+        shuffleDeck();
+
+        dealCardToDealer();
+        dealCardToPlayer(2);
+
+        while (m_playerTotal < 15)
+            dealCardToPlayer();
+
+        if (m_dealerTotal > 21)
+            reportLose();
+
+        while (m_dealerTotal < 17)
+            dealCardToDealer();
+
+        if (m_dealerTotal > 21 || m_playerTotal > m_dealerTotal)
+            reportWin();
+        else
+            reportLose();
+
+        std::cout << std::endl;
+    }
+
+
+    return false;
+}

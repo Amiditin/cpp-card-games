@@ -16,7 +16,7 @@ void playSeka()
 void playBaccarat()
 {
     Baccarat baccarat(getUserBank());
-    while (baccarat.playGame()) {}
+    while (baccarat.playTestGames(100)) {}
 }
 
 int getUserChoice()

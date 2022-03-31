@@ -21,4 +21,8 @@ add_executable(
         Games/Casino/Baccarat/Baccarat.h
         Games/Casino/Seka/Seka.cpp
         Games/Casino/Seka/Seka.h
+        Games/Klondike/Klondike.cpp
+        Games/Klondike/Klondike.h
+        Games/Domino/Domino.cpp
+        Games/Domino/Domino.h
 )

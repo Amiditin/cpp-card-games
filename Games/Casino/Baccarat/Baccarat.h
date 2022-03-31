@@ -29,6 +29,8 @@ public:
     };
 
     bool playGame();
+
+    [[maybe_unused]] bool playTestGames(int numberTests);
 };
 
 

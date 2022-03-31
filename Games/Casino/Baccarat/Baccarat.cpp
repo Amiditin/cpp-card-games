@@ -2,7 +2,7 @@
 
 bool Baccarat::playGame()
 {
-    if (getCardIndex() == 103)
+    if (getCardIndex() > 96)
         shuffleDeck();
 
     resetCards();
@@ -111,7 +111,7 @@ int Baccarat::getCardValue(const Card &card)
 void Baccarat::reportDraw()
 {
     m_playerBank += m_playerBet * 9;
-    std::cout << "\nYou win! \nYou have " << m_playerBank << "$ in your bank\n";
+    std::cout << "\nYou win! \nYou have $" << m_playerBank << " in your bank\n";
 }
 
 bool Baccarat::calculateResult()
@@ -126,7 +126,7 @@ bool Baccarat::calculateResult()
                 if(checkPlayerBank())
                     return false;
             }
-            return playAgain();
+            break;
         case 'd':
             if (m_playerTotal < m_dealerTotal)
                 reportWin();
@@ -135,7 +135,7 @@ bool Baccarat::calculateResult()
                 if(checkPlayerBank())
                     return false;
             }
-            return playAgain();
+            break;
         case 't':
             if (m_playerTotal == m_dealerTotal)
                 reportDraw();
@@ -144,8 +144,9 @@ bool Baccarat::calculateResult()
                 if(checkPlayerBank())
                     return false;
             }
-            return playAgain();
+            break;
     }
+    return playAgain();
 }
 
 void Baccarat::dealThirdCard(std::array<Card, 3> &cards, int &total)
@@ -153,5 +154,68 @@ void Baccarat::dealThirdCard(std::array<Card, 3> &cards, int &total)
     cards[2] = getTopCard();
     total += getCardValue(dealCard());
     total %= 10;
+}
+
+bool Baccarat::playTestGames(int numberTests)
+{
+    for (int number = 0; number < numberTests; ++number)
+    {
+        std::cout << "\n\nGame " << number + 1 << std::endl;
+        if (getCardIndex() > 96)
+            shuffleDeck();
+
+        resetCards();
+
+        dealCardToPlayers();
+
+        if (m_playerTotal > 7 || m_dealerTotal > 7)
+        {
+            showPlayerCards();
+            showDealerCards();
+
+            if (m_playerTotal > m_dealerTotal)
+                reportWin();
+            else
+                reportLose();
+            continue;
+        }
+
+        if (m_playerTotal < 6)
+            dealThirdCard(m_playerCards, m_playerTotal);
+
+
+        switch (m_dealerTotal)
+        {
+            case 0:
+            case 1:
+            case 2: dealThirdCard(m_dealerCards, m_dealerTotal); break;
+            case 3:
+                if (getCardValue(m_playerCards[2]) != 8)
+                    dealThirdCard(m_dealerCards, m_dealerTotal);
+                break;
+            case 4:
+                if (getCardValue(m_playerCards[2]) > 1 && getCardValue(m_playerCards[2]) < 8)
+                    dealThirdCard(m_dealerCards, m_dealerTotal);
+                break;
+            case 5:
+                if (getCardValue(m_playerCards[2]) < 4 || getCardValue(m_playerCards[2]) > 7)
+                    dealThirdCard(m_dealerCards, m_dealerTotal);
+                break;
+            case 6:
+                if (getCardValue(m_playerCards[2]) < 6 || getCardValue(m_playerCards[2]) > 7)
+                    dealThirdCard(m_dealerCards, m_dealerTotal);
+                break;
+        }
+
+        showPlayerCards();
+        showDealerCards();
+
+        if (m_playerTotal > m_dealerTotal)
+            reportWin();
+        else
+            reportLose();
+
+    }
+    return false;
 }
 

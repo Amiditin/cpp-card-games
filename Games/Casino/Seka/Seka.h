@@ -17,11 +17,17 @@ private:
 
     [[nodiscard]] bool checkPlayerBank() const override;
 
+    void makePlayerBet() override;
+
+    void makePlayerBet(int bet) override;
+
 
 public:
     explicit Seka(const int playerBank = 100) : Casino(playerBank, 36) {}
 
     bool playGame();
+
+    [[maybe_unused]] bool playTestGames(int numberTests);
 };
 
 

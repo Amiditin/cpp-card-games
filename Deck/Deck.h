@@ -10,7 +10,7 @@
 
 class Deck
 {
-private:
+protected:
     std::vector<Card> m_deck;
 
     int m_cardIndex = 0;
@@ -18,6 +18,18 @@ private:
     static int getRandomNumber(int min, int max);
 
     static void swapCard(Card &card1, Card &card2);
+
+    void fillDeck(int startRank);
+
+    void printDeck() const;
+
+    void shuffleDeck();
+
+    [[nodiscard]] const Card& getTopCard() const;
+
+    [[nodiscard]] int getCardIndex() const;
+
+    const Card& dealCard();
 
 public:
     explicit Deck(const int numberCards = 52)
@@ -32,17 +44,6 @@ public:
             fillDeck(startRank);
     }
 
-    void fillDeck(int startRank);
-
-    void printDeck() const;
-
-    void shuffleDeck();
-
-    [[nodiscard]] const Card& getTopCard() const;
-
-    [[nodiscard]] int getCardIndex() const;
-
-    const Card& dealCard();
 };
 
 

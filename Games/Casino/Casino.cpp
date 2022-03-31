@@ -40,7 +40,7 @@ void Casino::makePlayerBet()
 
 void Casino::makePlayerBet(const int bet)
 {
-    std::cout   << "You have " << m_playerBank << "$ in your bank\n"
+    std::cout   << "You have $" << m_playerBank << " in your bank\n"
                 << "The base bet is $" << bet << " before the start of the round.\n\n";
     m_playerBet += bet;
 }
@@ -59,18 +59,18 @@ bool Casino::checkPlayerBank() const
 void Casino::reportWin()
 {
     m_playerBank += m_playerBet;
-    std::cout << "\nYou win! \nYou have " << m_playerBank << "$ in your bank\n";
+    std::cout << "\nYou win! \nYou have $" << m_playerBank << " in your bank\n";
 }
 
 void Casino::reportLose()
 {
     m_playerBank -= m_playerBet;
-    std::cout << "\nYou lose! \nYou have " << m_playerBank << "$ in your bank\n";
+    std::cout << "\nYou lose! \nYou have $" << m_playerBank << " in your bank\n";
 }
 
 void Casino::reportDraw()
 {
-    std::cout << "\nDraw! \nYou have " << m_playerBank << "$ in your bank\n";
+    std::cout << "\nDraw! \nYou have $" << m_playerBank << " in your bank\n";
 }
 
 bool Casino::playAgain()
@@ -104,14 +104,9 @@ void Casino::resetCards()
     m_playerBet = 0;
 }
 
-void Casino::printDeck() const
-{
-    m_deck.printDeck();
-}
-
 void Casino::showPlayerCards() const
 {
-    std::cout << "Your cards:    ";
+    std::cout << "Your cards: ";
     for (auto & card : m_playerCards)
         std::cout << card << "  ";
     std::cout << "\nYou have: " << m_playerTotal << " points\n\n";
@@ -119,28 +114,8 @@ void Casino::showPlayerCards() const
 
 void Casino::showDealerCards() const
 {
-    std::cout << "Dealer cards:  ";
+    std::cout << "Dealer cards: ";
     for (auto & card : m_dealerCards)
         std::cout << card << "  ";
     std::cout << "\nDealer has: " << m_dealerTotal << " points\n\n";
-}
-
-int Casino::getCardIndex() const
-{
-    return m_deck.getCardIndex();
-}
-
-const Card &Casino::dealCard()
-{
-    return m_deck.dealCard();
-}
-
-const Card &Casino::getTopCard() const
-{
-    return m_deck.getTopCard();
-}
-
-void Casino::shuffleDeck()
-{
-    m_deck.shuffleDeck();
 }

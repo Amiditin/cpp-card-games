@@ -97,6 +97,18 @@ build CMakeFiles/cpp_card_games.dir/Games/Casino/Seka/Seka.cpp.obj: CXX_COMPILER
   OBJECT_DIR = CMakeFiles\cpp_card_games.dir
   OBJECT_FILE_DIR = CMakeFiles\cpp_card_games.dir\Games\Casino\Seka
 
+build CMakeFiles/cpp_card_games.dir/Games/Klondike/Klondike.cpp.obj: CXX_COMPILER__cpp_card_games_Debug C$:/Users/dimaf/CLionProjects/cpp-card-games/Games/Klondike/Klondike.cpp || cmake_object_order_depends_target_cpp_card_games
+  DEP_FILE = CMakeFiles\cpp_card_games.dir\Games\Klondike\Klondike.cpp.obj.d
+  FLAGS = -g -std=gnu++17
+  OBJECT_DIR = CMakeFiles\cpp_card_games.dir
+  OBJECT_FILE_DIR = CMakeFiles\cpp_card_games.dir\Games\Klondike
+
+build CMakeFiles/cpp_card_games.dir/Games/Domino/Domino.cpp.obj: CXX_COMPILER__cpp_card_games_Debug C$:/Users/dimaf/CLionProjects/cpp-card-games/Games/Domino/Domino.cpp || cmake_object_order_depends_target_cpp_card_games
+  DEP_FILE = CMakeFiles\cpp_card_games.dir\Games\Domino\Domino.cpp.obj.d
+  FLAGS = -g -std=gnu++17
+  OBJECT_DIR = CMakeFiles\cpp_card_games.dir
+  OBJECT_FILE_DIR = CMakeFiles\cpp_card_games.dir\Games\Domino
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target cpp_card_games
@@ -105,7 +117,7 @@ build CMakeFiles/cpp_card_games.dir/Games/Casino/Seka/Seka.cpp.obj: CXX_COMPILER
 #############################################
 # Link the executable cpp_card_games.exe
 
-build cpp_card_games.exe: CXX_EXECUTABLE_LINKER__cpp_card_games_Debug CMakeFiles/cpp_card_games.dir/main.cpp.obj CMakeFiles/cpp_card_games.dir/Card/Card.cpp.obj CMakeFiles/cpp_card_games.dir/Deck/Deck.cpp.obj CMakeFiles/cpp_card_games.dir/Games/Games.cpp.obj CMakeFiles/cpp_card_games.dir/Games/Casino/Casino.cpp.obj CMakeFiles/cpp_card_games.dir/Games/Casino/Blackjack/Blackjack.cpp.obj CMakeFiles/cpp_card_games.dir/Games/Casino/Baccarat/Baccarat.cpp.obj CMakeFiles/cpp_card_games.dir/Games/Casino/Seka/Seka.cpp.obj
+build cpp_card_games.exe: CXX_EXECUTABLE_LINKER__cpp_card_games_Debug CMakeFiles/cpp_card_games.dir/main.cpp.obj CMakeFiles/cpp_card_games.dir/Card/Card.cpp.obj CMakeFiles/cpp_card_games.dir/Deck/Deck.cpp.obj CMakeFiles/cpp_card_games.dir/Games/Games.cpp.obj CMakeFiles/cpp_card_games.dir/Games/Casino/Casino.cpp.obj CMakeFiles/cpp_card_games.dir/Games/Casino/Blackjack/Blackjack.cpp.obj CMakeFiles/cpp_card_games.dir/Games/Casino/Baccarat/Baccarat.cpp.obj CMakeFiles/cpp_card_games.dir/Games/Casino/Seka/Seka.cpp.obj CMakeFiles/cpp_card_games.dir/Games/Klondike/Klondike.cpp.obj CMakeFiles/cpp_card_games.dir/Games/Domino/Domino.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\cpp_card_games.dir

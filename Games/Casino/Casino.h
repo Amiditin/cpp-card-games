@@ -3,11 +3,8 @@
 
 #include "../../Deck/Deck.h"
 
-class Casino
+class Casino : public Deck
 {
-private:
-    Deck m_deck;
-
 protected:
     std::array<Card, 3> m_playerCards;
     std::array<Card, 3> m_dealerCards;
@@ -18,28 +15,18 @@ protected:
 
     explicit Casino(const int playerBank = 100, const int numberCards = 52) :
         m_playerBank(playerBank),
-        m_deck(numberCards)
+        Deck(numberCards)
     {}
 
     void getPlayerBet();
 
-    void makePlayerBet();
+    virtual void makePlayerBet();
 
-    void makePlayerBet(int bet);
+    virtual void makePlayerBet(int bet);
 
     [[nodiscard]] virtual bool checkPlayerBank() const;
 
     static bool playAgain();
-
-    void shuffleDeck();
-
-    [[nodiscard]] const Card& getTopCard() const;
-
-    [[nodiscard]] int getCardIndex() const;
-
-    void printDeck() const;
-
-    const Card& dealCard();
 
     void reportWin();
 

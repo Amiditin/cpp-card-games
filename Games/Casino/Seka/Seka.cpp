@@ -42,6 +42,35 @@ bool Seka::playGame()
     return playAgain();
 }
 
+[[maybe_unused]] bool Seka::playTestGames(const int numberTests)
+{
+    for (int number = 0; number < numberTests; ++number) {
+        std::cout << "Game " << number + 1 << std::endl;
+
+        resetCards();
+        shuffleDeck();
+
+        dealCardToPlayers();
+
+        m_playerTotal = getTotal(m_playerCards);
+        m_dealerTotal = getTotal(m_dealerCards);
+
+        showPlayerCards();
+        showDealerCards();
+
+        if (m_playerTotal < m_dealerTotal)
+            reportLose();
+        else if (m_playerTotal == m_dealerTotal)
+            reportDraw();
+        else
+            reportWin();
+
+        std::cout << std::endl;
+    }
+
+    return false;
+}
+
 void Seka::dealCardToPlayers()
 {
     for (int index = 0; index < 6; ++index)
@@ -66,6 +95,53 @@ int Seka::getTotal(std::array<Card, 3> &cards)
     int cardValue1 = getCardValue(cards[0]);
     int cardValue2 = getCardValue(cards[1]);
     int cardValue3 = getCardValue(cards[2]);
+
+    if      (cardRank1 == Card::RANK_6 && cardSuit1 == Card::SUIT_CLUB)
+    {
+        if (cardValue2 > cardValue3)
+        {
+            cardSuit1 = cardSuit2;
+            cardRank1 = cardRank2;
+            cardValue1 = cardValue2;
+        }
+        else
+        {
+            cardSuit1 = cardSuit3;
+            cardRank1 = cardRank3;
+            cardValue1 = cardValue3;
+        }
+    }
+    else if (cardRank2 == Card::RANK_6 && cardSuit2 == Card::SUIT_CLUB)
+    {
+        if (cardValue1 > cardValue3)
+        {
+            cardSuit2 = cardSuit1;
+            cardRank2 = cardRank1;
+            cardValue2 = cardValue1;
+        }
+        else
+        {
+            cardSuit2 = cardSuit3;
+            cardRank2 = cardRank3;
+            cardValue2 = cardValue3;
+        }
+    }
+    else if (cardRank3 == Card::RANK_6 && cardSuit3 == Card::SUIT_CLUB)
+    {
+        if (cardValue1 > cardValue2)
+        {
+            cardSuit3 = cardSuit1;
+            cardRank3 = cardRank1;
+            cardValue3 = cardValue1;
+        }
+        else
+        {
+            cardSuit3 = cardSuit2;
+            cardRank3 = cardRank2;
+            cardValue3 = cardValue2;
+        }
+    }
+
 
     if (cardRank1 == cardRank2 && cardRank2 == cardRank3)
         switch (cardRank1)
@@ -155,4 +231,16 @@ int Seka::getCardValue(const Card &card)
     }
     return 0;
 }
+
+void Seka::makePlayerBet()
+{
+    std::cout << "You have $" << m_playerBank << " in your bank. You current bet $" << m_playerBet << "\n";
+    getPlayerBet();
+}
+
+void Seka::makePlayerBet(int bet)
+{
+    Casino::makePlayerBet(bet);
+}
+
 

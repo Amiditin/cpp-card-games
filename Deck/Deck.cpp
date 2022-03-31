@@ -14,7 +14,7 @@ void Deck::shuffleDeck()
 {
     for (auto & card : m_deck)
     {
-        int swapIndex = getRandomNumber(0, m_deck.size());
+        int swapIndex = getRandomNumber(0, m_deck.size() - 1);
         swapCard(card, m_deck[swapIndex]);
     }
     m_cardIndex = 0;
@@ -27,7 +27,6 @@ const Card& Deck::getTopCard() const
 
 const Card& Deck::dealCard()
 {
-    assert (m_cardIndex < 52);
     return m_deck[m_cardIndex++];
 }
 

@@ -8,12 +8,14 @@ int main()
 
     while (true)
     {
-        std::cout << "Please choose a game:\n";
-        std::cout << "(1) to Blackjack\n";
-        std::cout << "(2) to Seka\n";
-        std::cout << "(3) to Baccarat\n";
-        std::cout << "(0) to Exit\n";
-        std::cout << "Your choice:";
+        std::cout << "Please choose a game:\n"  <<
+                     "(1) to Blackjack\n"       <<
+                     "(2) to Seka\n"            <<
+                     "(3) to Baccarat\n"        <<
+                     "(4) to Klondike\n"        <<
+                     "(5) to Domino\n"          <<
+                     "(0) to Exit\n"            <<
+                     "Your choice:";
 
         int choice = getUserChoice();
 
@@ -24,6 +26,8 @@ int main()
             case BLACKJACK: playBlackjack();    continue;
             case SEKA:      playSeka();         continue;
             case BACCARAT:  playBaccarat();     continue;
+            case KLONDIKE:  playKlondike();     continue;
+            case DOMINO:    playDomino();       continue;
             case MAX_GAMES:
                 std::cout << "Exit.\n";
                 return 0;
